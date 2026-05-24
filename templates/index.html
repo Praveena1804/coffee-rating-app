@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coffee Rating App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #d7ccc8, #a1887f);
+            text-align: center;
+            margin: 0;
+        }
+
+        h1 {
+            padding: 20px;
+            color: #3e2723;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #5d4037;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #6d4c41;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4e342e;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>☕ Coffee Rating Application</h1>
+
+<div class="container">
+    {% for coffee in coffees %}
+        <div class="card">
+            <h2>{{ coffee['name'] }}</h2>
+            <p>Votes: {{ coffee['votes'] }}</p>
+
+            <a href="{{ url_for('vote', coffee_id=coffee['id']) }}">
+                <button>Vote 👍</button>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
