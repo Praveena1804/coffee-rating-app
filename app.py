@@ -57,4 +57,4 @@ def vote(coffee_id):
 if __name__ == '__main__':
     print("Starting Coffee Rating App...")  # debug check
     init_db()
-    app.run(debug=True)
+   app.run(host='0.0.0.0', port=5000)
